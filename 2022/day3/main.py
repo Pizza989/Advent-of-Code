@@ -12,7 +12,16 @@ with open("input.txt", "r") as file:
                 res.append(char)
                 break
 
-print(sum(map(lambda x: string.ascii_letters.index(x) + 1, res)))
+    print(sum(map(lambda x: string.ascii_letters.index(x) + 1, res)))
 
 with open("input.txt", "r") as file:
-    pass
+    res = []
+    lines = file.readlines()
+    for i in range(0, len(lines), 3):
+        block = list(map(lambda x: x.strip(), lines[i : i + 3]))
+        for char in block[0]:
+            if char in block[1] and char in block[2]:
+                res.append(char)
+                break
+
+    print(sum(map(lambda x: string.ascii_letters.index(x) + 1, res)))
