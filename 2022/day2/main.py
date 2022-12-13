@@ -36,20 +36,20 @@ def evaluate(a: str, b: str):
 with open("input.txt", "r") as file:  # part 1
     lines = file.readlines()
 
-print(sum([evaluate(*line.split()) for line in lines]))
+    print(sum([evaluate(*line.split()) for line in lines]))
 
 
-# part 2
-new = []
-for line in lines:
-    a, b = line.split()
-    match b:
-        case "X":
-            new.append(f"{a} {scheme[(scheme.index(a) - 1) % 3]}")
-        case "Y":
-            new.append(f"{a} {a}")
-        case "Z":
-            new.append(f"{a} {scheme[(scheme.index(a) + 1) % 3]}")
+    # part 2
+    new = []
+    for line in lines:
+        a, b = line.split()
+        match b:
+            case "X":
+                new.append(f"{a} {scheme[(scheme.index(a) - 1) % 3]}")
+            case "Y":
+                new.append(f"{a} {a}")
+            case "Z":
+                new.append(f"{a} {scheme[(scheme.index(a) + 1) % 3]}")
 
-print(new)
-print(sum([evaluate(*line.split()) for line in new]))
+    print(new)
+    print(sum([evaluate(*line.split()) for line in new]))
